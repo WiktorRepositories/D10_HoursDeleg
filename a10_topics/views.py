@@ -18,9 +18,9 @@ class View_machines_overview(View):
     def post(self, request:HttpRequest):
         code = request.POST.get("code", "")
         text = request.POST.get("text", "")
-        desc = request.POST.get("desc", "")
+        desc = request.POST.get("description", "")
         if code and text and desc:
-            MachineData_db.objects.create(machineCode=code, machineText= text, machineDescription= desc)
+            MachineData_db.objects.create(code=code, text= text, description= desc)
         else:
             pass # redirect to error info page...
         return HttpResponseRedirect(reverse(View_machines_overview.URL_NAME))
@@ -46,12 +46,12 @@ class View_machine_modify(View):
     def post(self, request:HttpRequest, id):
         code = request.POST.get("code", "")
         text = request.POST.get("text", "")
-        desc = request.POST.get("desc", "")
-        if code and text and desc:
+        description = request.POST.get("description", "")
+        if code and text and description:
             machine = MachineData_db.objects.get(pk=id)
-            machine.machineCode = code
-            machine.machineText = text
-            machine.machineDescription = desc
+            machine.code = code
+            machine.text = text
+            machine.description = description
             machine.save()
         else:
             pass # redirect to error info page...

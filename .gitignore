@@ -1,0 +1,6 @@
+__init__.py
+*.pyc
+_ve_/
+__pycache__/
+.idea/
+db.sqlite3
