@@ -1,0 +1,36 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+{% include "form_machines.html" %}
+
+<br>
+<h2>All machines data</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"> ID/PK </th>
+            <th scope="col"> Code </th>
+            <th scope="col"> Text </th>
+            <th scope="col"> Description </th>
+            <th scope="col"> Link </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for m in machines %}
+        <tr>
+            <th scope="row"> {{m.id}} </th>
+            <td scope="row"> {{ m.machineCode }} </td>
+            <td scope="row"> {{ m.machineText }} </td>
+            <td scope="row"> {{ m.machineDescription }} </td>
+            <td scope="col">
+                <a href="{% url 'machine_modify' m.pk %}"> <button>change</button> </a>
+                <a href="{% url 'machine_delete' m.pk %}"> <button>delete</button> </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+<div>
+    <form method="post" name="machine">
+        {% csrf_token %}
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th scope="col"> New entry: </th>
+                    <th scope="col"> Code </th>
+                    <th scope="col"> Text </th>
+                    <th scope="col"> Description </th>
+                    <th scope="col"> Submit </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row"> | </th>
+                    <th scope="row">
+                        <input type="text" name="code" id="code" placeholder="code">
+                    </th>
+                    <th scope="row">
+                        <input type="text" name="text" id="code" placeholder="text">
+                    </th>
+                    <th scope="row">
+                        <input type="text" name="desc" id="code" placeholder="descrition">
+                    </th>
+                    <th scope="row">
+                        <button type="submit"> Submit </button>
+                    </th>
+                </tr>
+
+            </tbody>
+        </table>
+    </form>
+</div>
